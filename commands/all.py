@@ -78,6 +78,19 @@ def drug(self, channel, user, to=None):
     )
     self.say(channel, msg, to if to else user)
 
+self.foods = ['burrito','pizza','pasta','bread','dry bread','salt']
+
+@bot.command('!food(?:\s+(\w+))?')
+def food(self, channel, user, to=None):
+    food = random.choice(self.foods)
+    msg = 'Are you hungry. Here is some {}! ^__^'.format(food)
+    self.say(channel, msg, to if to else user)
+
+@bot.command('!addfood(?:\s+(\w+))?')
+def food(self, channel, user, newfood=None):
+    if newfood:
+        self.foods.append(newfood)
+
 @bot.command('!join ([^ ]+)')
 def join(self, channel, user, target):
     if user == 'Cheaterman':
